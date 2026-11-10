@@ -1,0 +1,94 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검증 현황과 적용 한계</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>검증 현황과 적용 한계</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="_1">검증 현황과 적용 한계</h1>
+<p>검증일: 2026-11-10. 아래는 이 제작 PC의 관찰 결과이며 학생 PC의 동작이나 실제 수업 성과를 보장하는 기록은 아니다.</p>
+<table>
+<thead>
+<tr>
+<th>대상</th>
+<th>실제 수행</th>
+<th>결과·범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>도입 앱</td>
+<td>사용자 지정 두 URL의 HTTP 응답·제목·브라우저 화면 확인</td>
+<td>룰렛 → 셔틀 순으로 교재·첫 화면에 배치. 각 사례와 페이지 하단 링크 포함</td>
+</tr>
+<tr>
+<td>Codex·Claude Code</td>
+<td>이미 설치된 CLI의 버전·도움말 확인</td>
+<td>Codex 0.167.0-alpha.3.2 / Claude Code 2.1.316. 새 설치·새 로그인 화면은 미확보</td>
+</tr>
+<tr>
+<td>find-skills</td>
+<td>Skills CLI로 프로젝트 설치·검색</td>
+<td>성공. Codex용 파일과 Claude Code 연결 생성. 새 에이전트 세션의 호출과 구분</td>
+</tr>
+<tr>
+<td>Phaser 공식 스킬</td>
+<td>game-setup-and-config 설치·지침 읽기</td>
+<td>성공. Phaser 4.2.1 로컬 엔진과 함께 게임 설정에 적용</td>
+</tr>
+<tr>
+<td>prompt-master·지정 hwpx</td>
+<td>전체 자원을 프로젝트 스킬 경로에 복사</td>
+<td>파일 설치 완료. 기존 전역 스킬은 수정하지 않음</td>
+</tr>
+<tr>
+<td>교재용 플러그인</td>
+<td>직접 작성한 로컬 classroom-helper의 validate 검사</td>
+<td>검사 통과. 마켓플레이스 공개·새 세션 실행은 미실행</td>
+</tr>
+<tr>
+<td>OpenAI Docs MCP</td>
+<td>공개 HTTP 엔드포인트 initialize·tools/list·문서 검색</td>
+<td>HTTP 200 및 실제 검색 결과 수신. 에이전트 UI에 신규 등록한 것은 아님</td>
+</tr>
+<tr>
+<td>게임 규칙</td>
+<td>Node에서 결정적 조건으로 시험</td>
+<td>17/17 통과. 도착 성공·중복 피격 방지·재시작 등 포함</td>
+</tr>
+<tr>
+<td>게임 화면</td>
+<td>브라우저에서 실제 UI 조작</td>
+<td>10종 ID 선택 전달, 이동·점프, 제7경 피격 3회 후 종료, 재시작·일시정지·재개 확인</td>
+</tr>
+<tr>
+<td>미실행 게임 시나리오</td>
+<td>브라우저 도착 성공까지 전체 플레이·다양한 기기</td>
+<td>규칙 시험과 구분. 후속 사용자 시험 항목</td>
+</tr>
+<tr>
+<td>HWPX 구조</td>
+<td>3개 파일 ZIP/XML·관계 검사</td>
+<td>세 파일 모두 통과. 후속 실제 한글 열림과 별도 기록</td>
+</tr>
+<tr>
+<td>HWPX 런타임</td>
+<td>실제 한글 열림·PDF 내보내기</td>
+<td>학생 6쪽 / 교사 3쪽 / 첫 실습 1쪽, PDF 페이지 수 일치</td>
+</tr>
+<tr>
+<td>HWPX 시각 점검</td>
+<td>한글에서 생성한 PDF의 전체 페이지 렌더</td>
+<td>표·텍스트·그림·페이지 경계 점검. 실제 UI 스크린샷과 구분한 문서 렌더 이미지 제공</td>
+</tr>
+<tr>
+<td>수업 효과</td>
+<td>실제 수업 미실시</td>
+<td>학생 수·만족도·학습 효과를 결과로 작성하지 않음</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">화면 확보 상태</h2>
+<p>직접 접속한 공식 웹페이지와 두 도입 앱, 게임 선택·실행·점프·종료·재시작 화면을 캡처했다. 일부 브라우저 제어 중단이 있었으나 이후 새 요청에 따른 브라우저 작업에서 추가 게임 시험과 캡처를 확보했다. 모든 설치·로그인·에이전트 메뉴 화면을 확보한 것은 아니다. 미확보 화면을 가공 성공 화면으로 대체하지 않았다.</p>
+<p>HWPX 페이지 이미지는 실제 한글에서 PDF로 내보낸 파일을 렌더한 것이다. 한글 앱 UI 전체를 촬영한 스크린샷은 아니다. 자료도판과 실제 화면 캡처는 파일 목록에서 구분했다.</p>
+<h2 id="_3">이용 조건</h2>
+<p>제천시 페이지에 출처표시·상업적 이용금지·변경금지 조건이 표시되어 있었다. 제공 JPG는 바이트 그대로 복사했고 원본 격자 배경도 유지했다. 도트 스타일은 새로 작성한 배경·장애물에 적용했다. 별도 변형·상업 이용·공개 재배포 허락을 취득한 것은 아니다.</p>
+<p>Anthropic 개인용 서비스는 18세 이상 조건을 확인했으므로 기본 고교 수업에서는 Claude Code를 교사 시연으로 안내했다. 계정 공유나 나이 우회 실습은 포함하지 않았다.</p>
+<h2 id="_4">재현 시험</h2>
+<pre><code class="language-powershell">node '.\09_제작도구\test_rules.cjs'
+python -m http.server 18465 --bind 127.0.0.1
+</code></pre>
+<p>새로운 실행 환경은 게임·계정·설치·문서 검증 상태를 다시 기록한다. 결과 파일은 game-rule-tests.json, browser-character-checks.json, browser-play-checks.json, report-package-validation.json, report-runtime-validation.json에서 확인한다.</p></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" target="_blank" rel="noopener">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" target="_blank" rel="noopener">셔틀버스 노선도</a><br>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>

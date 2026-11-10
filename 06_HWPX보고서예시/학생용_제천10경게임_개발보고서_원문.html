@@ -1,0 +1,97 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>제천10경 캐릭터 기반 횡스크롤 게임 개발 보고서</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>제천10경 캐릭터 기반 횡스크롤 게임 개발 보고서</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="10">제천10경 캐릭터 기반 횡스크롤 게임 개발 보고서</h1>
+<p>제천10경 캐릭터 기반 횡스크롤 게임 개발 보고서</p>
+<p>학생용 작성 예시 | 제작·검증일 2026. 11. 10.</p>
+<p>실제 수업 성과가 아닌 예제 프로그램 개발 및 사전 검증 결과이다.</p>
+<ol>
+<li>개발 배경 및 목적</li>
+</ol>
+<p>본 예제에서는 지역 캐릭터 자료와 AI 코딩 도구를 활용하여 고등학생이 실행 가능한 횡스크롤 게임을 제작하고, 구현 기능을 시험하는 방법을 익히고자 한다. 이를 위하여 요구사항을 정리하고 자료수집, 자산 목록 구축, 구현, 시험 및 결과 기록의 순서로 개발하였다.</p>
+<ol start="2">
+<li>자료 및 개발 환경</li>
+</ol>
+<p>항목 | 확인 내용</p>
+<p>원본 자료 | 제천10경케릭터 폴더 JPG 10개, 각 275×165</p>
+<p>실행 환경 | Windows / 브라우저 / Phaser 4.2.1 로컬 배포본</p>
+<p>제작 도구 | Codex, Python, Node.js / 프로젝트 스킬</p>
+<p>원본 처리 | 바이트 그대로 복사, 크롭·배경 제거·도트화 없음</p>
+<p>검증 범위 | Node 규칙 시험 17개 및 일부 실제 브라우저 조작</p>
+<ol start="3">
+<li>기능 요구사항</li>
+</ol>
+<p>기능 | 구현 조건</p>
+<p>캐릭터 선택 | ID 1~10, 제6경·제7경 이름 중복 구분</p>
+<p>이동·점프 | 좌우 이동, 중력, 지상·발판 위 점프</p>
+<p>충돌·체력 | 장애물 6개, 체력 3, 피격 후 보호</p>
+<p>상태 관리 | 일시정지, 종료, 재시작, 도착 성공</p>
+<p>화면 | 도트 배경·장애물, 원본 이미지 카드 표시</p>
+<ol start="4">
+<li>캐릭터 자료 목록과 이용 조건</li>
+</ol>
+<p>파일명은 사용자가 보유한 원본을 기준으로 정리하였다. 아래 표시명과 관광지의 공식 대응 관계를 별도로 확정한 것은 아니다. 제6경과 제7경의 불동이는 경 번호를 고유 ID로 사용하였다.</p>
+<p>ID | 원본 파일명 | 게임 파일</p>
+<p>1 | 제1경 방울이.jpg | view-01.jpg</p>
+<p>2 | 제2경 고뿔이.jpg | view-02.jpg</p>
+<p>3 | 제3경 바우.jpg | view-03.jpg</p>
+<p>4 | 제4경 달래.jpg | view-04.jpg</p>
+<p>5 | 제5경 산등이.jpg | view-05.jpg</p>
+<p>6 | 제6경 불동이.jpg | view-06.jpg</p>
+<p>7 | 제7경 불동이.jpg | view-07.jpg</p>
+<p>8 | 제8경 해동이.jpg | view-08.jpg</p>
+<p>9 | 제9경 송송이.jpg | view-09.jpg</p>
+<p>10 | 제10경 구선생.jpg | view-10.jpg</p>
+<p>출처: 제천시 제천10경 캐릭터 페이지. 페이지에 출처표시·상업적 이용금지·변경금지 조건이 표시되어 있음을 확인하였다. 원본을 변형하지 않았으며 별도 이용 허락을 취득했다는 의미는 아니다. 공개 재배포 전 조건을 확인해야 한다.</p>
+<p>https://www.jecheon.go.kr/www/contents.do?key=48579</p>
+<ol start="5">
+<li>개발 방법 및 구현 구조</li>
+</ol>
+<p>자료수집 → 경 번호 기준 분류 및 자산 목록 구축 → 도형 이동·점프 구현 → 장애물·발판·체력 구현 → 캐릭터 선택 및 화면 연결 → 규칙 시험과 브라우저 확인 → 한계 정리의 순서로 진행하였다.</p>
+<p>파일 | 역할</p>
+<p>rules.js | 위치·속도·중력·착지·피격·점수·종료 규칙</p>
+<p>game.js | Phaser 렌더링, 키·버튼 입력, 상태 표시</p>
+<p>assets.js / 자산출처.json | ID·파일·원본·출처·처리 내역</p>
+<p>style.css / index.html | 선택 화면과 조작 안내</p>
+<p>vendor/version.json | 고정 엔진 버전·배포 URL 기록</p>
+<p>게임 월드의 길이와 장애물 위치는 수업용 설계값이다. 실제 제천 관광지의 지형이나 이동 경로를 측량·재현한 자료가 아니다. 원본 캐릭터는 정지 JPG이며 자세별 애니메이션 프레임을 제작하지 않았다.</p>
+<ol start="6">
+<li>검증 방법</li>
+</ol>
+<p>규칙 함수는 Node에서 정해진 시간 간격과 입력 조건으로 실행하였다. 브라우저에서는 선택 화면, 첫 캐릭터의 적용, 이동 및 점프 입력 후 상태 변화를 확인하고 실제 화면을 저장하였다. 규칙 시험과 브라우저 전 기능 시험을 동일하게 취급하지 않았다.</p>
+<ol start="7">
+<li>시험 결과</li>
+</ol>
+<p>Node 규칙 시험은 17개 중 17개가 통과하였다. 이는 시험에 포함한 조건에서의 결과이며 모든 브라우저·장치·플레이 경로가 검증되었다는 의미는 아니다.</p>
+<p>번호 | 규칙 시험 항목 | 실제 결과</p>
+<p>1 | 캐릭터 ID 1~10 초기화 | 통과</p>
+<p>2 | 잘못된 캐릭터 ID 거부 | 통과</p>
+<p>3 | 오른쪽 이동 | 통과</p>
+<p>4 | 왼쪽 경계 제한 | 통과</p>
+<p>5 | 지상에서 점프 | 통과</p>
+<p>6 | 공중 추가 점프 차단 | 통과</p>
+<p>7 | 중력과 착지 | 통과</p>
+<p>8 | 발판 상면 착지 | 통과</p>
+<p>9 | 충돌 시 체력 감소 | 통과</p>
+<p>10 | 충돌 직후 중복 피격 방지 | 통과</p>
+<p>11 | 체력 소진과 게임 종료 | 통과</p>
+<p>12 | 종료 상태 이동 차단 | 통과</p>
+<p>13 | 일시정지 중 상태 유지와 재개 | 통과</p>
+<p>14 | 이동 거리·스탬프 점수 누적 | 통과</p>
+<p>15 | 재시작 시 점수·체력 초기화와 캐릭터 유지 | 통과</p>
+<p>16 | 도착 지점 성공 처리 | 통과</p>
+<p>17 | 단계1은 장애물 피해 없음 | 통과</p>
+<p>브라우저 확인: 10종 각각 선택 후 게임에 전달된 ID를 확인하였다. 제7경으로 이동·점프·피격 3회 후 체력 0 및 종료, 재시작 후 ID 유지·체력 3·점수 0, 일시정지 중 위치 유지와 재개를 관찰하였다. 브라우저에서 도착 성공까지의 전체 플레이는 미실행이며 도착 판정은 Node 규칙 시험으로 확인하였다.</p>
+<ol start="8">
+<li>한계 및 개선 방향</li>
+</ol>
+<p>본 예제는 한 스테이지를 구현하였다. 이미지의 공식 명칭·관광지 대응 관계와 별도 변형 허락은 확정하지 않았다. 실제 수업에서의 학습 효과와 만족도는 조사하지 않았다. 후속 실습에서는 10종 선택 전달과 충돌·종료·재시작을 브라우저에서 재현하고, 직접 제작하거나 적절한 허락을 받은 이미지로 애니메이션을 확장할 수 있다.</p>
+<ol start="9">
+<li>결론 및 적용 가능성</li>
+</ol>
+<p>캐릭터 ID와 게임 규칙을 분리하여 선택·이동·점프·충돌·재시작을 구현하였으며, 규칙 시험과 실제 화면 확인의 범위를 구분하여 기록할 수 있었다. 따라서 본 예제는 AI 요청문 작성, 작은 기능의 반복 개선, 시험 근거에 따른 보고서 작성 활동에 활용할 수 있다. 수업 효과의 판단에는 별도의 운영·평가 자료가 필요하다.</p>
+<ol start="10">
+<li>AI 활용 내역과 참고자료</li>
+</ol>
+<p>AI는 교재·코드·보고서 초안 작성과 오류 점검을 보조하였다. 실제 파일·시험 로그·화면을 근거로 결과를 구분하였다. 학생은 자신의 요청·수정·시험 내역을 추가 기록해야 한다.</p>
+<p>https://github.com/phaserjs/phaser</p>
+<p>https://github.com/vercel-labs/skills</p>
+<p>https://github.com/Canine89/gonggong_hwpxskills</p>
+<p>https://www.jecheon.go.kr/www/contents.do?key=48579</p></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" target="_blank" rel="noopener">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" target="_blank" rel="noopener">셔틀버스 노선도</a><br>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>

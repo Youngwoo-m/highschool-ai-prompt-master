@@ -1,0 +1,61 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>모듈 5. GitHub와 find-skills 사용</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>모듈 5. GitHub와 find-skills 사용</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="5-github-find-skills">모듈 5. GitHub와 find-skills 사용</h1>
+<p>기준일 2026-11-10 · 예상 50분 · 학생용</p>
+<h2 id="1">1. 학습 목표</h2>
+<p>원본 저장소를 확인하고 프로젝트 범위에서 스킬을 탐색·설치한다.</p>
+<h2 id="2">2. 핵심 개념</h2>
+<p>GitHub 저장소는 코드·문서의 원본 위치다. README는 안내, SKILL.md는 에이전트 지침, LICENSE는 이용 조건이다. Skills CLI와 find-skills 스킬은 관련이 있지만 같은 실행 파일이 아니다.</p>
+<h2 id="3">3. 준비물과 이용 조건</h2>
+<p>현재 CLI 문서 기준 Node.js 22.20 이상, npm, Git. 제작 PC Node.js v24.18.0, npm 11.16.0. 교사 PC에서 한 번 검증하고 수업 전 배포한다.</p>
+<h2 id="4">4. 실제 웹 경로와 화면</h2>
+<p><strong>이동 경로:</strong> vercel-labs/skills → skills → find-skills → SKILL.md</p>
+<p><strong>직접 주소:</strong> <a href="https://github.com/vercel-labs/skills">https://github.com/vercel-labs/skills</a></p>
+<figure><a href="../08_화면캡처/05_findskills_원본.jpg"><img src="../08_화면캡처/05_findskills_원본.jpg" alt="그림 5-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다."></a><figcaption>그림 5-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다. · 실제 캡처 2026-11-10<br>출처: <a href="https://github.com/vercel-labs/skills">https://github.com/vercel-labs/skills</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
+
+<h2 id="5">5. 단계별 실습</h2>
+<h3 id="1_1">단계 1. 원본 읽기</h3>
+<p>저장소 소유자와 주소를 확인하고 README, SKILL.md, 라이선스, 수정 내역을 읽는다. 인기 수치만으로 안전성을 단정하지 않는다.</p>
+<h3 id="2-zip-clone">단계 2. ZIP과 clone</h3>
+<p>Code 메뉴의 Download ZIP은 특정 시점의 사본을 받는다. git clone은 저장소 이력과 업데이트 관리에 적합하다. 다운로드만 했다고 에이전트에 설치된 것은 아니다.</p>
+<h3 id="3-node">단계 3. Node 확인</h3>
+<p>node --version과 npm --version을 실행한다. 학교 정책에 맞는 설치본을 사용하고 CLI 문서의 최소 버전을 확인한다.</p>
+<h3 id="4_1">단계 4. 프로젝트 설치</h3>
+<p>실습 폴더에서 find-skills를 두 대상 에이전트에 설치한다. -g를 쓰지 않으면 프로젝트 범위를 우선한다. 실제 선택 화면이 나오면 대상과 경로를 읽는다.</p>
+<h3 id="5_1">단계 5. 검색</h3>
+<p>phaser 또는 platformer로 검색하고 실제 결과의 원본 저장소를 연다. 이번 검색에서는 Phaser 공식 저장소와 두 커뮤니티 후보가 확인되었다.</p>
+<h3 id="6">단계 6. 인식과 제거</h3>
+<p>npx skills list와 파일 위치를 확인한다. 제거는 현재 도움말을 확인하고 프로젝트 스킬에만 적용한다. 업데이트는 전체 학급 실습 전에 교사가 먼저 검증한다.</p>
+<p><strong>입력 위치: Windows PowerShell.</strong> 주석과 경로를 읽고 필요한 명령만 실행한다. <code>/help</code> 등 세션 명령은 설명된 에이전트 안에서 입력한다.</p>
+<pre><code class="language-powershell">node --version
+npm --version
+npx skills add vercel-labs/skills --skill find-skills -a codex -a claude-code
+npx skills find &quot;phaser&quot;
+npx skills find &quot;platformer&quot;
+npx skills list
+npx skills --help
+</code></pre>
+<h2 id="6_1">6. 복사 가능한 프롬프트 입력 예시</h2>
+<p>입력 위치는 이용이 허용된 Codex 또는 교사의 Claude Code 세션이다. 스킬 이름이 들어간 예시는 해당 스킬이 인식된 상태에서 사용한다. 아래는 입력 예시이며 실제 서비스에서 자동으로 실행된 응답을 뜻하지 않는다.</p>
+<h3 id="5-1">예시 5-1. 기본 요청</h3>
+<pre><code class="language-text">find-skills를 사용해 2D 횡스크롤 게임에 도움이 되는 스킬을 찾아줘. 원본 저장소, 라이선스, 지원 에이전트, 설치 방법을 비교하고 자동으로 전역 설치하지 마.
+</code></pre>
+<p>확인: 요청한 파일 또는 비교 결과가 실제로 나왔는지 확인한다.</p>
+<h3 id="5-2">예시 5-2. 수정·보완 요청</h3>
+<pre><code class="language-text">검색 결과 중 공식 Phaser 저장소의 game-setup-and-config가 실제로 있는지 확인하고 어떤 버전과 작업을 다루는지 SKILL.md를 읽어 정리해줘.
+</code></pre>
+<p>확인: 기존 요구사항이 유지되고 추가 조건이 반영되었는지 확인한다.</p>
+<h3 id="5-3">예시 5-3. 확인·검증 요청</h3>
+<pre><code class="language-text">설치된 find-skills의 파일 위치와 이름을 확인해줘. 파일 존재, 새 세션에서의 인식, 실제 검색 실행 여부를 구분해서 알려줘.
+</code></pre>
+<p>확인: 기대 결과와 실제 실행 여부가 구분되었는지 확인한다.</p>
+<h2 id="7">7. 정상 결과와 확인 방법</h2>
+<p>프로젝트 .agents/skills/find-skills에 SKILL.md가 있고 Claude Code용 연결이 있다. 본 제작에서 CLI 설치는 성공했으며 로그를 07_검증및출처/install-find.txt에 보관했다.</p>
+<h2 id="8">8. 오류와 해결</h2>
+<p>검색 결과가 없으면 엔진명·기능명으로 좁힌다. 저장소가 바뀌었으면 원본에서 현재 위치를 확인한다. npx 설치 확인 대화와 에이전트 권한 승인을 혼동하지 않는다.</p>
+<h2 id="9">9. 과제와 확인 문항</h2>
+<p>기본: 후보 2개 비교표. 확장: 게임 외 보고서·접근성 관련 스킬 탐색.</p>
+<p>질문: ZIP 파일을 내려받았으면 스킬 설치 완료인가? 답: 올바른 경로에 SKILL.md와 자원을 두고 에이전트가 인식해야 한다.</p>
+<h2 id="_1">출처</h2>
+<ul>
+<li><a href="https://github.com/vercel-labs/skills">https://github.com/vercel-labs/skills</a> · 확인일 2026-11-10</li>
+<li>상세 실행 상태: <a href="../07_검증및출처/검증현황.md">검증 현황</a></li>
+</ul></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" target="_blank" rel="noopener">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" target="_blank" rel="noopener">셔틀버스 노선도</a><br>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>

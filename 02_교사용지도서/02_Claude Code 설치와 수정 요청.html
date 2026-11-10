@@ -1,0 +1,66 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>모듈 2. Claude Code 설치와 수정 요청</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>모듈 2. Claude Code 설치와 수정 요청</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="2-claude-code">모듈 2. Claude Code 설치와 수정 요청</h1>
+<p>기준일 2026-11-10 · 예상 50분 · 교사용</p>
+<h2 id="1">1. 학습 목표</h2>
+<p>Claude Code의 터미널 세션에서 프로젝트를 읽고 수정한다.</p>
+<h2 id="2">2. 핵심 개념</h2>
+<p>Claude 웹 채팅과 Claude Code는 사용 환경이 다르다. Claude Code는 프로젝트의 파일을 읽고 도구를 실행한다. CLAUDE.md는 Claude Code의 프로젝트 지침이며 Codex의 AGENTS.md와 적용 범위가 다르다.</p>
+<h2 id="3">3. 준비물과 이용 조건</h2>
+<p>Windows PowerShell과 학교가 허용한 교사 계정. Anthropic 개인용 서비스는 18세 이상을 요구한다. 연령 조건에 맞지 않는 학생에게 가입·계정 공유를 시키지 않는다. 해당 단원은 교사 시연과 프롬프트 설계 활동으로 운영한다. Claude Code의 지원 구독 또는 API 비용 경로는 별도로 확인한다.</p>
+<h2 id="4">4. 실제 웹 경로와 화면</h2>
+<p><strong>이동 경로:</strong> Claude Code Docs → Getting started → Quickstart → Step 1: Install Claude Code</p>
+<p><strong>직접 주소:</strong> <a href="https://code.claude.com/docs/en/quickstart">https://code.claude.com/docs/en/quickstart</a></p>
+<figure><a href="../08_화면캡처/02_ClaudeCode_공식설치.jpg"><img src="../08_화면캡처/02_ClaudeCode_공식설치.jpg" alt="그림 2-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다."></a><figcaption>그림 2-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다. · 실제 캡처 2026-11-10<br>출처: <a href="https://code.claude.com/docs/en/quickstart">https://code.claude.com/docs/en/quickstart</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
+
+<h2 id="5">5. 단계별 실습</h2>
+<h3 id="1_1">단계 1. 공식 설치 안내 열기</h3>
+<p>PowerShell용 명령과 CMD·WSL용 명령을 구분한다. 아래 명령은 교사가 출처를 확인한 후 실행한다. 설치된 PC에서는 버전 확인부터 진행한다.</p>
+<h3 id="2_1">단계 2. 설치 확인</h3>
+<p>새 PowerShell에서 claude --version을 실행한다. 이 제작 PC에는 2.1.316이 설치되어 있었다. 명령어가 인식되는 것과 로그인·요청 성공은 별도이다.</p>
+<h3 id="3_1">단계 3. 프로젝트 시작</h3>
+<p>모듈 1의 실습 폴더로 이동해 claude를 실행한다. 첫 인증은 교사가 직접 완료한다. /help로 현재 세션의 도움말을 확인한다.</p>
+<h3 id="4_1">단계 4. 읽기부터 요청</h3>
+<p>어떤 파일이 있고 각 파일이 무슨 역할인지 먼저 물어본다. 아직 수정하지 않도록 범위를 명시한다.</p>
+<h3 id="5_1">단계 5. 한 가지 변경</h3>
+<p>색상·글자 크기 등 한 가지 목표를 요청한다. 승인창이 있으면 작업 경로와 실행 명령을 읽고 판단한다.</p>
+<h3 id="6">단계 6. 검토와 종료</h3>
+<p>수정 전후 페이지를 비교한다. 세션 안에서 /exit를 입력하거나 현재 도움말의 종료 방법을 따른다. 저장된 파일이 유지되는지 확인한다.</p>
+<p><strong>입력 위치: Windows PowerShell.</strong> 주석과 경로를 읽고 필요한 명령만 실행한다. <code>/help</code> 등 세션 명령은 설명된 에이전트 안에서 입력한다.</p>
+<pre><code class="language-powershell"># 새 설치가 필요한 교사가 공식 주소 확인 후 실행
+irm https://claude.ai/install.ps1 | iex
+# 설치 후 새 터미널에서
+claude --version
+Set-Location -LiteralPath $lessonRoot
+claude
+# 아래는 Claude Code 세션 안에서 입력
+/help
+</code></pre>
+<h2 id="6_1">6. 복사 가능한 프롬프트 입력 예시</h2>
+<p>입력 위치는 이용이 허용된 Codex 또는 교사의 Claude Code 세션이다. 스킬 이름이 들어간 예시는 해당 스킬이 인식된 상태에서 사용한다. 아래는 입력 예시이며 실제 서비스에서 자동으로 실행된 응답을 뜻하지 않는다.</p>
+<h3 id="2-1">예시 2-1. 기본 요청</h3>
+<pre><code class="language-text">현재 폴더의 자기소개 페이지 파일을 읽고 파일별 역할과 실행 방법을 설명해줘. 아직 파일은 수정하지 마.
+</code></pre>
+<p>확인: 요청한 파일 또는 비교 결과가 실제로 나왔는지 확인한다.</p>
+<h3 id="2-2">예시 2-2. 수정·보완 요청</h3>
+<pre><code class="language-text">자기소개 페이지에 수업 목표 영역을 추가해줘. 목표는 AI에게 구체적으로 요청하기, 실행 결과 확인하기, 오류를 근거로 수정하기야. 기존 내용을 보존해줘.
+</code></pre>
+<p>확인: 기존 요구사항이 유지되고 추가 조건이 반영되었는지 확인한다.</p>
+<h3 id="2-3">예시 2-3. 확인·검증 요청</h3>
+<pre><code class="language-text">방금 수정한 파일과 바뀐 내용을 정리해줘. 브라우저 표시를 실제로 확인했는지, 코드만 검토했는지 구분해서 알려줘.
+</code></pre>
+<p>확인: 기대 결과와 실제 실행 여부가 구분되었는지 확인한다.</p>
+<h2 id="7">7. 정상 결과와 확인 방법</h2>
+<p>파일 목록과 수정 내용이 실제 폴더와 일치한다. 교사 계정으로 한 요청이 성공해야 인증·사용이 확인된 것이다. 본 제작에서는 CLI 버전·도움말을 확인했고 별도 유료 요청은 실행하지 않았다.</p>
+<h2 id="8">8. 오류와 해결</h2>
+<p>설치 명령에 &amp;&amp; 관련 오류가 나면 CMD 예제를 PowerShell에 붙여 넣었는지 확인한다. Git for Windows는 공식 안내에 따라 선택하며 WSL을 모든 PC에 필수로 설치하지 않는다.</p>
+<h2 id="9">9. 과제와 확인 문항</h2>
+<p>기본: 교사 시연을 관찰하고 수정 요청문 작성. 확장: 기존 내용을 보존하도록 CLAUDE.md 지침 초안 작성.</p>
+<p>질문: 학생이 교사 계정으로 돌아가며 로그인해도 되는가? 답: 계정을 공유하지 않는다. 이용 조건에 맞는 환경 또는 교사 시연을 사용한다.</p>
+<h2 id="10">10. 교사 시연과 설명</h2>
+<p>가입이 곧 수업 참여의 조건이 되지 않게 한다. 미성년 학생은 요청 작성자 역할을 맡고 교사가 실행·결과 확인을 시연한다.</p>
+<p>시연 순서는 목표 안내 5분 → 작업과 설명 15분 → 학생 활동·관찰 20분 → 결과 비교 7분 → 기록 3분을 기본으로 한다. 장시간 모듈은 각 차시마다 이를 반복한다. 막힌 학생은 계정 공유 대신 실행 예제와 요청문 비교 활동을 사용한다.</p>
+<p>관찰 기록: 목표 달성 여부 / 학생이 확인한 근거 / 발생 오류 / 다음 시간 보완 사항. 수업 실시 전에는 실제 학생 반응을 채우지 않는다.</p>
+<h2 id="_1">출처</h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/quickstart">https://code.claude.com/docs/en/quickstart</a> · 확인일 2026-11-10</li>
+<li>상세 실행 상태: <a href="../07_검증및출처/검증현황.md">검증 현황</a></li>
+</ul></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" target="_blank" rel="noopener">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" target="_blank" rel="noopener">셔틀버스 노선도</a><br>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>
