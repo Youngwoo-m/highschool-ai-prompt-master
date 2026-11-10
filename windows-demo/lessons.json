@@ -1,0 +1,81 @@
+[
+  {
+    "id": "codex",
+    "title": "Windows에 Codex를 설치하고 사용함",
+    "source": "https://learn.chatgpt.com/docs/codex/cli",
+    "install": [
+      {
+        "command": "npm.cmd install -g @openai/codex --prefix .\\codex-runtime",
+        "status": "실행 종료 코드 0",
+        "output": "\nadded 2 packages in 4s\n"
+      },
+      {
+        "command": ".\\codex-runtime\\codex.cmd --version",
+        "status": "실행 종료 코드 0",
+        "output": "codex-cli 0.167.0\n"
+      }
+    ],
+    "input": "아래 설명만을 바탕으로 외부 도구나 파일 접근 없이 HTML 코드 한 개만 응답하라. 아직 파일을 저장하지 않는다. 고등학생의 첫 AI 실습용 웹페이지이다. 밝은 민트 배경, 굵고 큰 제목 고교 AI 첫 실습, 본문 오늘의 목표: 요청하고 확인함을 넣는다. 외부 자원 없이 단일 HTML로 작성하고 응답에는 HTML 코드블록 하나만 넣는다.",
+    "output": "```html\n<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>고교 AI 첫 실습</title>\n  <style>\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      margin: 0;\n      min-height: 100vh;\n      min-height: 100svh;\n      display: grid;\n      place-items: center;\n      padding: 24px;\n      background: #d9fff0;\n      color: #123d32;\n      font-family: system-ui, sans-serif;\n    }\n\n    main {\n      width: min(100%, 760px);\n      padding: clamp(32px, 7vw, 72px);\n      border: 2px solid #a5e8cf;\n      border-radius: 28px;\n      background: #f7fffb;\n      text-align: center;\n      box-shadow: 0 16px 48px rgb(18 61 50 / 8%);\n    }\n\n    h1 {\n      margin: 0 0 24px;\n      font-size: clamp(36px, 7vw, 64px);\n      font-weight: 900;\n      line-height: 1.2;\n      letter-spacing: -0.04em;\n      word-break: keep-all;\n    }\n\n    p {\n      margin: 0;\n      font-size: clamp(18px, 3vw, 26px);\n      line-height: 1.7;\n      word-break: keep-all;\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <h1>고교 AI 첫 실습</h1>\n    <p>오늘의 목표: 요청하고 확인함</p>\n  </main>\n</body>\n</html>\n```",
+    "notes": "교육용 codex-runtime 폴더에 격리 설치함. 코드 응답을 받은 뒤 제작 도구가 hello.html로 저장함. Codex의 직접 파일 작성 시도는 정책상 차단됐음.",
+    "result": "hello.html"
+  },
+  {
+    "id": "claude",
+    "title": "Windows에 Claude Code를 설치하고 사용함",
+    "source": "https://code.claude.com/docs/en/quickstart",
+    "install": [
+      {
+        "command": "Windows 기본 모듈 검색 경로 복구(현재 프로세스만) → irm https://claude.ai/install.ps1 | iex",
+        "status": "실행 종료 코드 0",
+        "output": "Setting up Claude Code...\n\nChecking installation status...\nInstalling Claude Code native build latest...\nSetting up launcher and shell integration...\n√ Claude Code successfully installed!\n\n  Version: 2.1.322\n\n  Location: C:\\Users\\사용자\\.local\\bin\\claude.exe\n\n\n  Next: Run claude --help to get started\n\n‼ Setup notes:\n  ● Native installation exists but C:\\Users\\사용자\\.local\\bin is not in your PATH. Add it by opening: System Properties → Environment Variables → Edit User PATH → New → Add the path above. Then restart your terminal.\n\n\n✅ Installation complete!\n\n"
+      },
+      {
+        "command": "claude --version",
+        "status": "실행 종료 코드 0",
+        "output": "2.1.322 (Claude Code)\n"
+      }
+    ],
+    "input": "README.md와 hello.html을 읽고 각각의 역할과 초보자가 확인할 항목을 한국어 세 항목으로 설명하라. 파일을 수정하지 말라. 반드시 실제 파일 내용을 근거로 답하라.",
+    "output": "두 파일을 읽기만 했고 수정하지 않았습니다.\n\n1. **README.md의 역할: 프로젝트 소개 문서**\n   - 제목은 `# 고교 AI 첫 실습`입니다 (`README.md:1`).\n   - \"지역 캐릭터 게임과 보고서를 만드는 수업용 프로젝트임. 개인정보를 사용하지 않음.\"이라고 목적과 원칙을 밝힙니다 (`README.md:3`).\n   - 초보자 확인 항목: 프로젝트의 목적이 '게임과 보고서 만들기'인지 확인하세요. 실습할 때 이름이나 연락처 같은 개인정보를 넣지 않는지도 확인하세요.\n\n2. **hello.html의 역할: 브라우저에서 여는 첫 실습 화면**\n   - 한국어 문서(`lang=\"ko\"`, UTF-8)이고, 탭 제목은 \"고교 AI 첫 실습\"입니다 (`hello.html:2-6`).\n   - 화면에는 큰 제목 \"고교 AI 첫 실습\"과 문장 \"오늘의 목표: 요청하고 확인함\"이 나옵니다 (`hello.html:53-54`).\n   - 초보자 확인 항목: 파일을 더블클릭해 브라우저로 여세요. 탭 제목과 화면의 두 문장이 한글 깨짐 없이 보이는지 확인하세요.\n\n3. **디자인(CSS) 확인 항목: 화면이 의도대로 보이는지 점검**\n   - 연한 민트색 배경(`#d9fff0`) 가운데에 둥근 모서리(28px) 카드가 놓입니다 (`hello.html:19`, `28`).\n   - `clamp()`와 `min()`을 써서 화면 크기에 따라 글자 크기와 여백이 바뀝니다 (`hello.html:25-26`, `36`, `45`).\n   - `word-break: keep-all`은 한글 단어가 중간에서 끊기지 않게 합니다 (`hello.html:40`, `47`).\n   - 초보자 확인 항목: 브라우저 창 크기를 줄이거나 휴대폰 화면으로 볼 때 다음을 보세요.\n     - 카드가 가운데에 있는지\n     - 글자가 넘치지 않는지\n     - 단어가 어색하게 줄바꿈되지 않는지\n",
+    "notes": "공식 설치기에 필요한 Windows 모듈 검색 경로를 현재 프로세스에서 복구한 뒤 설치 성공함. 기본 사용은 실제 파일을 읽는 요청임. 로그인·인증 입력 화면은 녹화하지 않음. 새 터미널에서도 명령을 찾지 못하면 사용자 .local/bin 경로를 PATH에 추가하거나 실행 파일 전체 경로를 사용함.",
+    "result": "hello.html"
+  },
+  {
+    "id": "prompt",
+    "title": "prompt-master를 설치하고 실행함",
+    "source": "https://github.com/nidhinjs/prompt-master",
+    "install": [
+      {
+        "command": "npx.cmd skills add nidhinjs/prompt-master --skill prompt-master --agent codex --agent claude-code --yes",
+        "status": "실행 종료 코드 0",
+        "output": "\n|\n•   codex  Agent detected — installing non-interactively\n|\no  Source: https://github.com/nidhinjs/prompt-master.git\n|\n•  Cloning repository…o  Cloning repository…O  Cloning repository…0  Cloning repository…•  Cloning repository…o  Cloning repository…O  Cloning repository…0  Cloning repository…o  Repository cloned\n|\no  Found 1 skill\n|\n•  Selected 1 skill: prompt-master\n\n|\no  Installation Summary -----------+\n|                                  |\n|  .\\.agents\\skills\\prompt-master  |\n|    universal: Codex              |\n|    symlink → Claude Code         |\n|                                  |\n+----------------------------------+\n|\no  Security Risk Assessments -----------------------------------+\n|                                                               |\n|                 Gen               Socket            Snyk      |\n|  prompt-master  Safe              0 alerts          Low Risk  |\n|                                                               |\n|  Details: https://skills.sh/nidhinjs/prompt-master            |\n|                                                               |\n+---------------------------------------------------------------+\n|\no  Installation complete\n\n|\no  Installed 1 skill ----------------+\n|                                    |\n|  ✓ .\\.agents\\skills\\prompt-master  |\n|    universal: Codex                |\n|    symlinked: Claude Code          |\n|                                    |\n+------------------------------------+\n\n|\n—  Done!  Review skills before use; they run with full agent permissions.\n\n"
+      }
+    ],
+    "input": "$prompt-master 스킬을 사용하여 Codex에 입력할 프롬프트 하나를 작성하라. 고등학생이 실습할 HTML 횡스크롤 게임이며 캐릭터 선택, 방향키 이동, Space 점프, 장애물 충돌, 체력 0 종료, 다시 시작을 구현하도록 요청한다. 기존 캐릭터 원본 이용 조건을 유지하고 외부 유료 서비스를 사용하지 않는다. 결과 파일과 동작 검증 기준을 명확히 적는다. 게임 코드를 직접 만들지 말고 복사 가능한 프롬프트를 작성한다.",
+    "output": "`prompt-master` 스킬 파일을 읽으려 했으나 실행 정책에 의해 차단되어 세부 지침을 확인하지 못했습니다. 아래는 요청 조건을 반영한 복사 가능한 프롬프트입니다.\n\n```text\n당신은 고등학생의 코딩 실습을 돕는 웹 개발자다. 현재 작업 폴더를 확인한 뒤, HTML·CSS·순수 JavaScript로 브라우저에서 실행되는 2D 횡스크롤 게임을 구현하라. 학생이 구조를 이해하고 수정할 수 있도록 코드를 단순하게 구성하고 주요 처리에 한국어 주석을 작성하라.\n\n[사전 확인 및 제약]\n- 작업 폴더의 AGENTS.md, 기존 코드, 캐릭터 이미지와 이용 조건을 먼저 확인하라.\n- 기존 캐릭터 원본을 활용하되 원본 파일을 덮어쓰지 말고, 저작권·출처 표기·수정·재배포 등 기존 이용 조건을 그대로 준수하라. 확인되지 않은 이용 권한을 임의로 가정하지 마라.\n- 캐릭터 자료나 이용 조건이 없어 작업에 필수적인 판단을 할 수 없다면 필요한 사항을 구체적으로 질문하라. 해당 자료에 의존하지 않는 작업은 진행하라.\n- 외부 유료 서비스, 유료 API, 결제, API 키를 사용하지 마라.\n- 외부 CDN이나 런타임 네트워크 요청 없이 로컬 파일만으로 실행되게 하라. 별도 빌드 과정이나 패키지 설치가 필요하지 않게 구성하라.\n- 기존 사용자 파일을 임의로 삭제하거나 관련 없는 내용을 변경하지 마라.\n\n[게임 기능]\n1. 캐릭터 선택\n   - 시작 화면에서 사용 가능한 기존 캐릭터를 이름과 미리보기로 표시하라.\n   - 선택한 캐릭터가 게임에 반영되게 하고, 선택 후 시작 버튼으로 플레이하게 하라.\n\n2. 이동과 횡스크롤\n   - 왼쪽·오른쪽 방향키로 캐릭터를 수평 이동시켜라.\n   - 캐릭터가 오른쪽으로 진행하면 카메라가 따라가며 배경과 장애물이 횡으로 스크롤되게 하라.\n   - 캐릭터가 월드 경계 밖으로 나가지 않게 하라.\n   - 플레이 중 방향키와 Space로 브라우저 화면이 스크롤되지 않게 하라.\n\n3. 점프\n   - Space를 누르면 점프하고 중력에 따라 지면으로 돌아오게 하라.\n   - 지면에 있을 때만 점프할 수 있게 하라. 키를 계속 누르거나 반복 입력해도 공중에서 재점프하지 않게 하라.\n\n4. 장애물 충돌과 체력\n   - 진행 경로에 점프로 피할 수 있는 장애물을 배치하라.\n   - 충돌 판정은 캐릭터와 장애물의 충돌 영역을 기준으로 처리하라.\n   - 초기 체력은 3으로 설정하고 화면에 표시하라.\n   - 충돌 시 체력을 1 감소시키고, 피격 상태를 시각적으로 표시하라.\n   - 피격 후 1초간 무적 시간을 적용하여 한 번의 접촉으로 체력이 연속 감소하는 현상을 방지하라.\n\n5. 게임 종료와 다시 시작\n   - 체력이 0이 되면 즉시 게임 오버 화면을 표시하고 이동·점프·게임 진행을 중단하라.\n   - 다시 시작 버튼을 누르면 선택한 캐릭터를 유지하면서 체력, 위치, 카메라, 장애물, 피격 상태를 초기화하라.\n   - 반복해서 다시 시작해도 이벤트 리스너나 애니메이션 루프가 중복되지 않게 하라.\n\n[결과 파일]\n- index.html: 캐릭터 선택 화면, 게임 화면, 게임 오버 화면\n- style.css: 화면 배치와 시각적 표현\n- game.js: 입력, 이동, 점프, 횡스크롤, 충돌, 체력, 종료, 재시작 처리\n- assets/: 이용 조건이 허용하는 캐릭터 및 관련 로컬 자산. 기존 자산 경로를 유지하는 편이 적절하면 중복 복사하지 않아도 된다.\n- README.md: 파일 구성, index.html 실행 방법, 조작법, 체력·속도·점프 높이 수정 위치, 캐릭터 출처와 확인된 이용 조건\n- TEST_RESULTS.md: 아래 검증 항목별 절차, 기대 결과, 실제 결과, 통과·실패·미실행 여부\n\n[동작 검증 기준]\n가능한 경우 실제 브라우저에서 다음 항목을 검증하고 결과를 기록하라.\n1. index.html을 로컬에서 열면 화면과 캐릭터 이미지가 정상 표시된다.\n2. 각 캐릭터를 선택해 시작하면 선택 결과가 플레이 화면에 반영된다.\n3. 좌우 방향키로 이동하며, 오른쪽 진행 시 횡스크롤이 발생한다.\n4. Space로 점프하고 착지하며, 공중 재점프가 발생하지 않는다.\n5. 장애물을 피하면 체력이 유지되고, 충돌하면 체력이 1 감소한다.\n6. 피격 후 1초 이내에는 추가 피해가 발생하지 않으며 이후 충돌에서는 다시 피해를 받는다.\n7. 체력이 0이 되면 게임 오버가 표시되고 게임 진행이 멈춘다.\n8. 다시 시작하면 선택 캐릭터가 유지되고 모든 플레이 상태가 초기화된다.\n9. 다시 시작을 3회 반복해도 이동 속도, 피해 처리, 게임 루프가 중복되지 않는다.\n10. 브라우저 콘솔에 오류가 없고, 외부 네트워크 요청 없이 실행된다.\n\n실제로 수행하지 못한 검증은 통과로 표시하지 말고 미실행 사유와 수동 확인 방법을 적어라. 최종 응답에는 생성·수정한 파일 경로, 실행 방법, 검증 결과와 남은 문제를 간결하게 보고하라.\n```",
+    "notes": "실습 프로젝트에 설치한 스킬을 Codex에서 $prompt-master로 요청함. 아래 출력은 실제 실행 응답임.",
+    "result": null
+  },
+  {
+    "id": "hwpx",
+    "title": "HWPX 양식에 맞춰 보고서를 작성함",
+    "source": "https://github.com/Canine89/gonggong_hwpxskills",
+    "install": [
+      {
+        "command": "npx.cmd skills add Canine89/gonggong_hwpxskills --skill hwpx --agent codex --agent claude-code --yes",
+        "status": "실행 종료 코드 0",
+        "output": "\n|\n•   codex  Agent detected — installing non-interactively\n|\no  Source: https://github.com/Canine89/gonggong_hwpxskills.git\n|\n•  Cloning repository…o  Cloning repository…O  Cloning repository…0  Cloning repository…•  Cloning repository…o  Cloning repository…O  Cloning repository…o  Repository cloned\n|\no  Found 1 skill\n|\n•  Selected 1 skill: hwpx\n\n|\no  Installation Summary ----+\n|                           |\n|  .\\.agents\\skills\\hwpx    |\n|    universal: Codex       |\n|    symlink → Claude Code  |\n|                           |\n+---------------------------+\n|\no  Security Risk Assessments -------------------------------+\n|                                                           |\n|        Gen               Socket            Snyk           |\n|  hwpx  Safe              0 alerts          Med Risk       |\n|                                                           |\n|  Details: https://skills.sh/Canine89/gonggong_hwpxskills  |\n|                                                           |\n+-----------------------------------------------------------+\n|\no  Installation complete\n\n|\no  Installed 1 skill --------+\n|                            |\n|  ✓ .\\.agents\\skills\\hwpx   |\n|    universal: Codex        |\n|    symlinked: Claude Code  |\n|                            |\n+----------------------------+\n\n|\n—  Done!  Review skills before use; they run with full agent permissions.\n\n"
+      },
+      {
+        "command": "원본 복사 → 텍스트 조사 → 치환 → 패키지 검증 → 한글 열기",
+        "status": "HWPX 구조 검증 통과 · 한글/PDF 4쪽",
+        "output": "원본 서식과 표 구조를 보존함. 목차를 실제 본문 4개 항목과 본문 쪽수 1–2로 수정함. 원본 파일을 덮어쓰지 않음."
+      }
+    ],
+    "input": "hwpx 스킬을 사용해 report-template.hwpx 양식을 복사하고 AI 실습 자료 제작 보고서를 작성해줘. 표지·목차·본문 서식을 유지하고 확인된 사실만 사용해줘. 원본을 보존하고 별도 HWPX로 저장한 뒤 패키지 구조, 한글 열림, PDF 쪽수와 배치를 확인해줘.",
+    "output": "{\n  \"replace_all\": {\n    \"브라더 공기관\": \"고교 AI 활용 교육\",\n    \"기본 보고서 양식\": \"AI 실습 자료 제작 보고서\",\n    \"2024. 5. 23.\": \"2026. 11. 10.\",\n    \"제 목\": \"AI 실습 자료 제작 보고서\",\n    \" 추진 배경\": \" 제작 배경\",\n    \" 현황 및 문제점\": \" 환경 및 검증\",\n    \" 개선 방안\": \" 실습 적용\",\n    \" 추진 계획\": \" 후속 계획\",\n    \"  1. 세부내용\": \"  1. 실습 명령과 실행 기록\",\n    \"  2. 세부내용\": \"  2. 원본 양식과 작성 결과\"\n  },\n  \"replace_sequential\": {\n    \"헤드라인M 폰트 16포인트(문단 위 15)\": [\n      \"자료 제작 목적\",\n      \"교육 대상과 범위\",\n      \"Windows 환경 확인\",\n      \"검증 범위 명시\",\n      \"프롬프트 구체화\",\n      \"HWPX 양식 유지\",\n      \"수업 전 점검\",\n      \"후속 활동 기록\"\n    ],\n    \"  ○ 휴면명조 15포인트(문단위 10)\": [\n      \"교사와 학생의 AI 실습 자료를 제작함\",\n      \"설치·기본 사용·문서 작성을 다룸\",\n      \"도구 버전과 실행 결과를 확인함\",\n      \"실제 수업 효과는 조사하지 않음\",\n      \"목적·입력·조건·결과를 명시함\",\n      \"제공된 보고서 양식의 서식을 보존함\",\n      \"계정·설치·파일 열림을 확인함\",\n      \"학습자의 실제 실습 결과를 기록함\"\n    ],\n    \"   ― 휴면명조 15포인트(문단 위 6)\": [\n      \"명령 실행과 결과 파일을 구분함\",\n      \"공식 설치 경로를 함께 제시함\",\n      \"개인정보 없는 실습 폴더를 사용함\",\n      \"실행하지 않은 결과를 작성하지 않음\",\n      \"prompt-master로 입력문을 작성함\",\n      \"텍스트를 치환하고 원본을 보존함\",\n      \"제작 환경과 교육 환경을 구분함\",\n      \"오류와 수정 내용을 별도로 남김\"\n    ],\n    \"     ※ 중고딕 13포인트(문단 위 3)\": [\n      \"제작일: 2026년 11월 10일\",\n      \"공식 문서와 저장소를 출처로 사용함\",\n      \"실제 실행 기록을 근거로 확인함\",\n      \"설치와 로그인 상태를 구분함\",\n      \"Canine89/gonggong_hwpxskills 활용\",\n      \"한글에서 열림과 쪽수를 확인함\",\n      \"수업 실시 전 학생 성과는 미작성함\"\n    ]\n  }\n}",
+    "notes": "이 입력문은 학습자가 재사용할 예시임. 이번 문서는 현재 에이전트가 HWPX 스킬 지침에 따라 Python 치환 도구로 실제 생성함. CLI가 자율 생성한 결과로 표시하지 않음. 저장소의 기본 양식 로고는 원본대로 유지함.",
+    "result": "report"
+  }
+]
