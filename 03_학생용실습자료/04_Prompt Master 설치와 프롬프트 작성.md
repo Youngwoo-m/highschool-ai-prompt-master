@@ -40,7 +40,7 @@ nidhinjs/prompt-master 저장소에서 README, SKILL.md, references와 LICENSE�
 
 ### 단계 3. 공용 원본 설치
 
-사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 프로젝트 설치 로그는 과거 실행 기록으로 구분함.
+사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 공용 원본 설치 로그는 과거 실행 기록으로 구분함.
 
 ### 단계 4. 파일·세션 확인
 

@@ -316,7 +316,7 @@ codex mcp list</pre>
 <h3 id="2_6">단계 2. 프로젝트 폴더 생성</h3>
 <p>문서 폴더에 고교AI실습 폴더를 만들고 PowerShell을 해당 폴더에서 연다. 기존 같은 이름의 스킬이 있다면 출처를 확인하고 무조건 덮어쓰지 않는다.</p>
 <h3 id="3_6">단계 3. 공용 원본 설치</h3>
-<p>사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 프로젝트 설치 로그는 과거 실행 기록으로 구분함.</p>
+<p>사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 공용 원본 설치 로그는 과거 실행 기록으로 구분함.</p>
 <h3 id="4_6">단계 4. 파일·세션 확인</h3>
 <p>SKILL.md와 references가 존재하는지 확인한 뒤 해당 프로젝트에서 새 에이전트 세션을 연다. 파일 복사, 세션 인식, 실제 요청 성공을 구분한다.</p>
 <h3 id="5_6">단계 5. 프롬프트 작성 요청</h3>
@@ -394,19 +394,25 @@ python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
 <h3 id="6_8">단계 6. 인식과 제거</h3>
 <p>npx skills list와 파일 위치를 확인한다. 제거는 현재 도움말을 확인하고 프로젝트 스킬에만 적용한다. 업데이트는 전체 학급 실습 전에 교사가 먼저 검증한다.</p>
 <p><strong>입력 위치: Windows PowerShell.</strong> 주석과 경로를 읽고 필요한 명령만 실행한다. <code>/help</code> 등 세션 명령은 설명된 에이전트 안에서 입력한다.</p>
-<pre># 이 PC의 공용 도구가 준비되어 있는지 먼저 확인함
-Test-Path "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
-# 새 원본이 없는 경우에만 실행함. 이미 있으면 원본과 출처를 확인함
-$skillRoot = Join-Path $env:USERPROFILE '.agents\skills'
-New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
-if (-not (Test-Path (Join-Path $skillRoot 'prompt-master'))) {
-    git clone https://github.com/nidhinjs/prompt-master (Join-Path $skillRoot 'prompt-master')
+<pre># 후보 검색 명령임. 설치 완료를 의미하지 않음
+npx skills find prompt
+npx skills find phaser game
+# 저장소 원본과 공용 스킬 연결을 구분함
+$repoRoot = Join-Path $env:USERPROFILE '.agents\repositories'
+New-Item -ItemType Directory -Force -Path $repoRoot | Out-Null
+$repo = Join-Path $repoRoot 'vercel-skills'
+if (-not (Test-Path $repo)) {
+    git clone https://github.com/vercel-labs/skills $repo
 }
-# 먼저 변경 계획을 확인함
+$source = Join-Path $repo 'skills\find-skills'
+$shared = Join-Path $env:USERPROFILE '.agents\skills\find-skills'
+# 기존 원본이 있으면 덮어쓰지 않고 출처와 연결을 먼저 확인함
+if ((Test-Path (Join-Path $source 'SKILL.md')) -and (-not (Test-Path $shared))) {
+    New-Item -ItemType Junction -Path $shared -Target $source
+}
 python "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
-# 백업과 연결 계획을 검토한 뒤 적용함
-python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
-# 양쪽 앱에서 새 세션을 열어 별도로 인식 여부를 확인함</pre>
+# 변경 계획과 원본 보존을 확인한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply</pre>
 <h2 id="6_9">6. 복사 가능한 프롬프트 입력 예시</h2>
 <p>입력 위치는 이용이 허용된 Codex 또는 교사의 Claude Code 세션이다. 스킬 이름이 들어간 예시는 해당 스킬이 인식된 상태에서 사용한다. 아래는 입력 예시이며 실제 서비스에서 자동으로 실행된 응답을 뜻하지 않는다.</p>
 <h3 id="5-1">예시 5-1. 기본 요청</h3>
