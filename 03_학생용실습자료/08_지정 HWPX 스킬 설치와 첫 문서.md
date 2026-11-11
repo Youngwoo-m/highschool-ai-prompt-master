@@ -1,3 +1,5 @@
+> 공용 설치 개정: 스킬은 사용자 .agents의 단일 원본, 플러그인은 양쪽 별도 등록, MCP는 공용 목록으로 관리함. https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/
+
 # 모듈 8. 지정 HWPX 스킬 설치와 첫 문서
 
 기준일 2026-11-10 · 예상 50분 · 학생용
@@ -28,7 +30,7 @@ Python, 지정 저장소의 assets/report-template.hwpx, 프로젝트 가상환�
 
 다른 hwpx 스킬과 혼동하지 않고 사용자가 지정한 저장소를 확인한다. 본 프로젝트에는 원본 전체를 09_제작도구/sources/gonggong_hwpxskills에 보관했다.
 
-### 단계 2. 프로젝트 설치
+### 단계 2. 공용 원본 설치
 
 .agents/skills/hwpx와 .claude/skills/hwpx에 자원을 복사했다. 같은 이름의 전역 스킬은 수정하지 않았다. 새 세션에서는 출처 경로까지 명시한다.
 
@@ -51,13 +53,18 @@ ZIP/XML 구조, 실제 한글 열림, PDF 페이지·표·그림을 별도로 �
 **입력 위치: Windows PowerShell.** 주석과 경로를 읽고 필요한 명령만 실행한다. `/help` 등 세션 명령은 설명된 에이전트 안에서 입력한다.
 
 ```powershell
-# 새 프로젝트에서 지정 저장소의 스킬을 설치할 때
-npx skills add Canine89/gonggong_hwpxskills --skill hwpx -a codex -a claude-code
-# 이 패키지에는 이미 복사되어 있다. 같은 이름이 있으면 출처부터 확인한다.
+# 공용 원본이 없는 경우에만 설치함
+$skillRoot = Join-Path $env:USERPROFILE '.agents\skills'
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+if (-not (Test-Path (Join-Path $skillRoot 'hwpx'))) {
+    git clone https://github.com/Canine89/gonggong_hwpxskills (Join-Path $skillRoot 'hwpx')
+}
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 계획과 백업을 확인한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
+# 문서 생성에 필요한 Python 패키지는 실습별 가상환경에 설치함
 python -m venv .venv-hwpx
 .\.venv-hwpx\Scripts\python.exe -m pip install python-hwpx
-# 재생성은 학생이 수정한 결과를 별도 보존한 후 진행
-# python .\09_제작도구\build_reports.py
 ```
 
 ## 6. 복사 가능한 프롬프트 입력 예시

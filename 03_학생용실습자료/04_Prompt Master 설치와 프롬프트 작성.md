@@ -1,10 +1,12 @@
+> 공용 설치 개정: 스킬은 사용자 .agents의 단일 원본, 플러그인은 양쪽 별도 등록, MCP는 공용 목록으로 관리함. https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/
+
 # 모듈 4. Prompt Master 설치와 프롬프트 작성
 
 기준일 2026-11-10 · 예상 50분 · 학생용
 
 ## 1. 학습 목표
 
-Prompt Master를 프로젝트에 설치하고 실제 요청을 실행하여 프롬프트를 작성한다.
+Prompt Master 원본을 사용자 공용 .agents에 설치하고 두 앱에서 요청하여 프롬프트를 작성함.
 
 ## 2. 핵심 개념
 
@@ -12,11 +14,11 @@ Prompt Master는 대상 AI 도구에 맞는 프롬프트 작성·개선 요청�
 
 ## 3. 준비물과 이용 조건
 
-Node.js와 Skills CLI, 사용이 허용된 Codex 또는 교사의 Claude Code 환경. 원본 저장소의 README·SKILL.md·references를 함께 확인한다. 본 실습은 프로젝트 범위에 설치하여 기존 전역 스킬을 보존한다.
+Node.js와 Skills CLI, 사용이 허용된 Codex 또는 교사의 Claude Code 환경. 원본 저장소의 README·SKILL.md·references를 함께 확인한다. 현재 실습은 사용자 공용 원본을 사용하며 기존 원본이 있으면 재설치하지 않고 출처와 연결을 확인함.
 
 ## 4. 실제 웹 경로와 화면
 
-**이동 경로:** GitHub 원본 → README 설치·사용 안내 → 프로젝트 스킬 설치 → 새 세션 호출
+**이동 경로:** GitHub 원본 → README 설치·사용 안내 → 사용자 공용 스킬 설치 → 새 세션 호출
 
 **직접 주소:** [https://github.com/nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master)
 
@@ -36,9 +38,9 @@ nidhinjs/prompt-master 저장소에서 README, SKILL.md, references와 LICENSE�
 
 문서 폴더에 고교AI실습 폴더를 만들고 PowerShell을 해당 폴더에서 연다. 기존 같은 이름의 스킬이 있다면 출처를 확인하고 무조건 덮어쓰지 않는다.
 
-### 단계 3. 프로젝트 설치
+### 단계 3. 공용 원본 설치
 
-npx skills add 명령으로 prompt-master를 선택하고 Codex와 Claude Code를 대상으로 지정한다. -g 없이 프로젝트 범위로 설치한다. 실제 설치 로그에서 .agents 경로와 Claude Code 연결이 생성됨을 확인했다.
+사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 프로젝트 설치 로그는 과거 실행 기록으로 구분함.
 
 ### 단계 4. 파일·세션 확인
 
@@ -55,12 +57,19 @@ prompt-master 스킬을 사용해 Codex용 프롬프트를 작성해 달라고 �
 **입력 위치: Windows PowerShell.** 주석과 경로를 읽고 필요한 명령만 실행한다. `/help` 등 세션 명령은 설명된 에이전트 안에서 입력한다.
 
 ```powershell
-# 새 프로젝트에서 실행
-npx skills add nidhinjs/prompt-master --skill prompt-master -a codex -a claude-code
-npx skills list
-Get-Content -LiteralPath '.agents/skills/prompt-master/SKILL.md' -TotalCount 4 -Encoding UTF8
-# 설치 후 해당 폴더에서 새 Codex 세션 시작
-codex
+# 이 PC의 공용 도구가 준비되어 있는지 먼저 확인함
+Test-Path "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 새 원본이 없는 경우에만 실행함. 이미 있으면 원본과 출처를 확인함
+$skillRoot = Join-Path $env:USERPROFILE '.agents\skills'
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+if (-not (Test-Path (Join-Path $skillRoot 'prompt-master'))) {
+    git clone https://github.com/nidhinjs/prompt-master (Join-Path $skillRoot 'prompt-master')
+}
+# 먼저 변경 계획을 확인함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 백업과 연결 계획을 검토한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
+# 양쪽 앱에서 새 세션을 열어 별도로 인식 여부를 확인함
 ```
 
 ## 6. 복사 가능한 프롬프트 입력 예시
@@ -93,7 +102,7 @@ prompt-master 스킬을 사용해서 Codex에 입력할 게임 개발 프롬프�
 
 ## 7. 정상 결과와 확인 방법
 
-별도 실습프로젝트에서 Skills CLI 설치가 성공했다. 이어 실제 Codex 요청을 실행하여 prompt-master의 SKILL.md를 읽고 게임 개발용 프롬프트를 출력했다. 원본 출력과 설치 로그를 보관했다. 이 출력은 별도 요청의 실제 응답이며 기존 완성 게임이 이 출력에서 새로 생성되었다는 의미는 아니다.
+이전 실행 기록: 별도 실습프로젝트에서 Skills CLI 설치가 성공했음. 이어 실제 Codex 요청을 실행하여 prompt-master의 SKILL.md를 읽고 게임 개발용 프롬프트를 출력했다. 원본 출력과 설치 로그를 보관했다. 이 출력은 별도 요청의 실제 응답이며 기존 완성 게임이 이 출력에서 새로 생성되었다는 의미는 아니다.
 
 ## 8. 오류와 해결
 

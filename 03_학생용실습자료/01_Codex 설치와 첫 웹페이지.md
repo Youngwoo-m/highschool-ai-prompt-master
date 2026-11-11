@@ -1,3 +1,5 @@
+> 공용 설치 개정: 스킬은 사용자 .agents의 단일 원본, 플러그인은 양쪽 별도 등록, MCP는 공용 목록으로 관리함. https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/
+
 # 모듈 1. Codex 설치와 첫 웹페이지
 
 기준일 2026-11-10 · 예상 50분 · 학생용

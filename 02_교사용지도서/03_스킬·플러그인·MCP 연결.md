@@ -1,3 +1,5 @@
+> 공용 설치 개정: 스킬은 사용자 .agents의 단일 원본, 플러그인은 양쪽 별도 등록, MCP는 공용 목록으로 관리함. https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/
+
 # 모듈 3. 스킬·플러그인·MCP 연결
 
 기준일 2026-11-10 · 예상 50분 · 교사용
@@ -54,7 +56,7 @@ https://playmcp.kakao.com/ 에 접속하여 MCP 검색, 도구함, 이용가이�
 
 ### 단계 5. 문서 MCP 등록
 
-Claude Code는 프로젝트 범위 HTTP 서버를 추가할 수 있다. Codex의 mcp add는 사용자 설정을 기록할 수 있으므로 범위를 설명하고 해당 사용자가 선택하여 실행한다. 제작 중에는 전역 등록 대신 공개 엔드포인트를 직접 시험했다.
+현재 실습에서는 공용 servers.json에만 서버를 기록하고 sync_mcp.py로 양쪽에 반영함. 설정 백업과 미리보기를 먼저 확인함. 이전 공개 엔드포인트 시험 결과와 현재 공용 동기화 여부를 구분함.
 
 ### 단계 6. 연결과 호출 구분
 
@@ -67,14 +69,14 @@ Claude Code의 mcp remove 도움말로 범위를 확인한 뒤 실습 서버를 
 **입력 위치: Windows PowerShell.** 주석과 경로를 읽고 필요한 명령만 실행한다. `/help` 등 세션 명령은 설명된 에이전트 안에서 입력한다.
 
 ```powershell
-# 현재 프로젝트 폴더의 PowerShell에서
-claude plugin validate '.\09_제작도구\classroom-plugin'
-claude --plugin-dir '.\09_제작도구\classroom-plugin'
-# Claude MCP를 프로젝트 범위에 등록할 때
-claude mcp add --transport http --scope project openai-docs https://developers.openai.com/mcp
+# 이 PC에 제공된 공용 관리 도구를 사용함
+# .agents\mcp\servers.json에만 서버 항목을 추가하거나 수정함
+# 사용자 지정 목록에 비밀값을 적지 않음
+python "$env:USERPROFILE\.agents\tools\sync_mcp.py"
+# 계획과 설정 백업을 확인한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\sync_mcp.py" --apply
+# 양쪽 목록과 실제 연결을 별도로 확인함
 claude mcp list
-# Codex 사용자 등록 명령. 사용자 설정 변경이므로 필요할 때만 선택 실행
-codex mcp add openaiDeveloperDocs --url https://developers.openai.com/mcp
 codex mcp list
 ```
 

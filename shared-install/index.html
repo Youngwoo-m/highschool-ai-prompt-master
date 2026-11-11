@@ -1,0 +1,70 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Claude와 Codex 공용 설치 교재</title><style>body{margin:0;background:#f5faf7;color:#153b41;font-family:Malgun Gothic,sans-serif;font-size:19px;line-height:1.75}header,main,footer{max-width:1100px;margin:auto;padding:32px}header{background:#e3f4ea}h1{font-size:40px;line-height:1.3}h2{font-size:29px;margin-top:46px}h3{font-size:23px}a{color:#006877;font-weight:bold}pre{padding:24px;background:#123e46;color:#f6fffb;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.6}table{width:100%;border-collapse:collapse;background:white}td,th{padding:16px;border:1px solid #bfd8ce;text-align:left}aside,.card{padding:24px;background:white;border:1px solid #c6ded4;border-radius:16px;margin:24px 0}.note{background:#fff3ce}code{overflow-wrap:anywhere}li{margin:10px 0}nav{display:flex;gap:20px;flex-wrap:wrap}@media(max-width:700px){header,main,footer{padding:20px}h1{font-size:30px}table{font-size:15px}td,th{padding:8px}}</style><header><p>WINDOWS 공용 설치 기준 / 2026-11-11</p><h1>Claude와 Codex가 같은 도구를 사용함</h1><p>스킬은 단일 원본을 공유함 / 플러그인은 각각 등록함 / MCP는 공용 목록으로 동기화함</p><nav><a href="../">웹 교재 홈</a><a href="#skills">스킬</a><a href="#plugins">플러그인</a><a href="#mcp">MCP</a><a href="#examples">입력 예시</a><a href="#verify">검증</a></nav></header><main>
+<aside class="note"><b>이 교육 환경의 사용자 지정 운영 방식임</b><p>아래 경로와 Python 관리 도구는 이 PC에 준비된 공용 관리 체계임. Claude와 Codex의 공식 기본 설치 경로가 같다는 의미가 아님. 다른 PC에서는 관리 스크립트와 정책을 먼저 준비해야 함. 이번 개정에서는 설명과 교재만 수정했으며 실제 설치 및 전역 설정 변경은 수행하지 않음.</p></aside>
+<table><tr><th>구분</th><th>공용 원본 또는 목록</th><th>앱별 사용 방식</th></tr><tr><td>스킬</td><td><code>%USERPROFILE%\.agents\skills\이름</code></td><td>Codex는 직접 읽음 / Claude는 junction으로 연결함</td></tr><tr><td>플러그인</td><td>같은 마켓플레이스와 출처를 선택함</td><td>형식이 달라 Claude와 Codex에 각각 등록함</td></tr><tr><td>MCP</td><td><code>%USERPROFILE%\.agents\mcp\servers.json</code></td><td>sync_mcp.py로 Claude 사용자 범위와 Codex config.toml에 반영함</td></tr></table>
+<h2 id="skills">1. 스킬 원본을 하나만 둠</h2><p>스킬은 특정 작업의 절차와 규칙을 담은 가이드임. 실제 원본은 <code>C:\Users\ds2ey\.agents\skills\이름</code> 하나만 둠. Claude의 <code>.claude\skills\이름</code>은 이 원본을 가리키는 junction으로 둠. <code>.claude\skills</code>나 <code>.codex\skills</code>에 복사본을 별도로 만들지 않음.</p><p>개발 저장소가 따로 있으면 공용 스킬 폴더를 해당 저장소의 SKILL.md 폴더로 연결함. 원본의 Claude 표현을 Codex로 일괄 치환하지 않음.</p><h3>Prompt Master 설치 예시</h3><pre># 이 PC의 공용 도구가 준비되어 있는지 먼저 확인함
+Test-Path &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot;
+# 새 원본이 없는 경우에만 실행함. 이미 있으면 원본과 출처를 확인함
+$skillRoot = Join-Path $env:USERPROFILE &#x27;.agents\skills&#x27;
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+if (-not (Test-Path (Join-Path $skillRoot &#x27;prompt-master&#x27;))) {
+    git clone https://github.com/nidhinjs/prompt-master (Join-Path $skillRoot &#x27;prompt-master&#x27;)
+}
+# 먼저 변경 계획을 확인함
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot;
+# 백업과 연결 계획을 검토한 뒤 적용함
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot; --apply
+# 양쪽 앱에서 새 세션을 열어 별도로 인식 여부를 확인함</pre>
+<p>consolidate_skills.py는 인수 없이 실행하면 미리보기만 출력함. --apply를 붙이면 공용 원본과 Claude 연결을 정리함. 밀려난 복사본은 <code>.claude\skill-backups</code>로 보관함. Claude 플러그인이 이미 같은 스킬을 제공하면 해당 스킬의 Claude junction을 중복으로 만들지 않음.</p>
+<h3>HWPX 설치 예시</h3><pre># 공용 원본이 없는 경우에만 설치함
+$skillRoot = Join-Path $env:USERPROFILE &#x27;.agents\skills&#x27;
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+if (-not (Test-Path (Join-Path $skillRoot &#x27;hwpx&#x27;))) {
+    git clone https://github.com/Canine89/gonggong_hwpxskills (Join-Path $skillRoot &#x27;hwpx&#x27;)
+}
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot;
+# 계획과 백업을 확인한 뒤 적용함
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot; --apply
+# 문서 생성에 필요한 Python 패키지는 실습별 가상환경에 설치함
+python -m venv .venv-hwpx
+.\.venv-hwpx\Scripts\python.exe -m pip install python-hwpx</pre>
+<p>스킬의 공용 설치와 문서 작업 폴더는 구분함. 보고서 원본 양식과 생성 결과는 실습 폴더에 보관함. <code>python-hwpx</code>는 문서 처리용 Python 패키지이며 스킬 자체와 구분함.</p>
+<h3>find-skills와 게임 개발 스킬</h3><p><code>npx skills find prompt</code>와 <code>npx skills find phaser game</code>으로 후보를 검색함. 검색 명령의 성공을 설치 완료로 간주하지 않음. find-skills는 vercel-labs/skills 저장소의 <code>skills/find-skills</code> 하위 폴더에 있으므로 저장소 루트 전체를 같은 이름의 스킬로 간주하지 않음. 선정한 스킬의 실제 SKILL.md 폴더를 공용 원본 경로에 연결하고 미리보기와 적용 절차를 따름.</p><pre># 검색과 공용 설치를 구분함
+npx skills find phaser game
+# 선정한 저장소의 SKILL.md 위치와 사용 조건을 확인함
+# 스킬 원본은 사용자 .agents\skills에 하나만 둠
+# 하위 폴더형 저장소는 공용 원본에서 해당 폴더로 junction을 연결함
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot;
+# 계획을 검토한 뒤 적용함
+python &quot;$env:USERPROFILE\.agents\tools\consolidate_skills.py&quot; --apply
+# 게임 실행은 실습 프로젝트 폴더에서 진행함
+python -m http.server 18465 --bind 127.0.0.1</pre>
+<h2 id="plugins">2. 플러그인은 같은 출처로 각각 등록함</h2><p>플러그인은 스킬, MCP 서버, 서브에이전트와 훅 등을 묶는 배포 단위임. 호스트의 형식과 지원 범위가 다르므로 하나의 설치 폴더를 두 앱이 그대로 공동 사용한다고 설명하지 않음.</p><ol><li>같은 마켓플레이스의 실제 URL과 제공 기능을 확인함</li><li>Claude의 플러그인 관리 기능에 해당 마켓플레이스를 등록함</li><li>Codex의 플러그인 관리 기능에도 같은 마켓플레이스를 등록함</li><li>각 앱에서 지원 여부와 설치 상태를 따로 확인함</li><li>Claude 플러그인에서 제공하는 스킬은 Claude junction을 중복 생성하지 않음</li></ol><p>같은 출처라도 두 호스트에서 모든 기능이 동일하게 지원된다고 가정하지 않음. 연결, 계정 인증과 실행 성공을 각각 확인함.</p>
+<h2 id="mcp">3. MCP는 공용 목록으로 관리함</h2><p>MCP는 AI가 외부 데이터와 도구에 연결하는 표준 통신 규약임. 서버 항목은 <code>C:\Users\ds2ey\.agents\mcp\servers.json</code>에만 추가하거나 수정함. 서버 프로그램은 <code>.agents\mcp\servers</code> 아래에 둠. 개별 호스트의 mcp add 명령으로 한쪽에만 등록하는 방식을 실습 표준으로 사용하지 않음.</p><pre># 이 PC에 제공된 공용 관리 도구를 사용함
+# .agents\mcp\servers.json에만 서버 항목을 추가하거나 수정함
+# 사용자 지정 목록에 비밀값을 적지 않음
+python &quot;$env:USERPROFILE\.agents\tools\sync_mcp.py&quot;
+# 계획과 설정 백업을 확인한 뒤 적용함
+python &quot;$env:USERPROFILE\.agents\tools\sync_mcp.py&quot; --apply
+# 양쪽 목록과 실제 연결을 별도로 확인함
+claude mcp list
+codex mcp list</pre>
+<h3>공용 목록의 HTTP 서버 예시</h3><p>아래는 구조를 설명하는 공개 URL 예시임. 기존 목록 전체를 덮어쓰지 않고 필요한 서버 항목만 병합함. 실제 서버 연결을 이 문서에서 실행했다는 뜻은 아님.</p><pre>{
+  &quot;servers&quot;: {
+    &quot;openai-docs&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://developers.openai.com/mcp&quot;,
+      &quot;hosts&quot;: [
+        &quot;claude&quot;,
+        &quot;codex&quot;
+      ]
+    }
+  }
+}</pre>
+<h3>새 stdio 서버 기동 확인</h3><p>서버 프로그램을 공용 서버 폴더에 준비한 뒤 실제 실행 파일과 인수로 확인함. 아래 예시는 server.py가 준비된 경우에만 실행함. mcp_probe.py는 stdio 서버에 initialize와 tools/list를 요청하는 도구이며 HTTP 서버의 범용 점검 명령이 아님.</p><pre>python &quot;$env:USERPROFILE\.agents\tools\mcp_probe.py&quot; python &quot;$env:USERPROFILE\.agents\mcp\servers\example\server.py&quot;</pre>
+<p>공용 목록에 비밀번호, API 키와 인증 토큰을 적지 않음. Codex 내부용 node_repl과 플러그인이 자동 제공하는 서버는 공용 목록에 넣지 않음. sync_mcp.py --apply는 기존 설정을 <code>.agents\backups\mcp-시각</code> 아래에 백업하고 관리 대상만 반영함.</p>
+<h2 id="examples">4. 실제 입력에 사용할 프롬프트 예시</h2><h3>공용 설치 상태 확인</h3><pre>사용자 .agents의 공용 설치 기준으로 스킬과 MCP 상태를 읽기 전용으로 확인해줘. 스킬 원본 위치, Claude junction 대상, Codex에서 읽는 위치를 구분해줘. 두 관리 스크립트의 미리보기 결과만 확인하고 --apply는 실행하지 마. 비밀값을 출력하지 말고, 경로 존재와 앱 인식 및 실제 실행을 별도로 보고해줘.</pre>
+<h3>Prompt Master 실행</h3><pre>prompt-master 스킬을 사용해서 Codex에 입력할 제천10경 횡스크롤 게임 개발 프롬프트를 작성해줘. 대상은 고등학생이고 Windows에서 실습함. 공용 .agents의 스킬 원본을 사용함. 제공된 JPG 10종을 선택 카드로 사용하고, 캐릭터 선택, 좌우 이동, 점프, 장애물 충돌, 체력 3, 점수, 일시정지, 다시 시작을 포함해줘. 원본 JPG를 변경하지 말고, 검증 기준을 포함해줘. 지금은 프롬프트만 작성해줘.</pre>
+<h3>공용 HWPX 스킬로 양식 보고서 작성</h3><pre>공용 .agents/skills/hwpx의 SKILL.md와 출처를 확인하고 해당 스킬을 사용해줘. 제공한 report-template.hwpx의 표, 제목, 항목과 서식을 유지하여 AI 활용 실습 보고서를 새 파일로 작성해줘. 제공 자료에 있는 활동과 결과만 사용하고, 확인하지 않은 학습 효과나 실행 결과는 만들지 마. 원본을 보존하고 HWPX 구조 검사와 실제 한글 열기 및 화면 검수를 구분해서 보고해줘.</pre>
+<h2 id="verify">5. 백업 후 양쪽에서 따로 확인함</h2><ol><li>현재 설정을 백업하고 변경 계획을 확인함</li><li>공용 원본 SKILL.md와 Claude junction이 같은 대상을 가리키는지 확인함</li><li>Codex와 Claude에서 각각 새 세션을 열어 스킬을 요청함</li><li>MCP 목록 노출과 실제 도구 호출을 별도로 확인함</li><li>한쪽 전용 항목을 공용으로 강제 이동하지 않음</li></ol><p>Codex의 .system, chatgpt-apps, hatch-pet, task-observer와 Claude의 synced는 한쪽 전용으로 유지함.</p><aside><b>이번 개정의 실제 확인 범위</b><p>2026-11-11 관리 스크립트 두 개의 읽기 전용 미리보기를 실행함. consolidate_skills.py: 83 shared skills; 0 actions. sync_mcp.py: in sync: nothing to change. 이번 작업에서 --apply, 신규 설치, MCP 도구 호출 및 두 앱의 새 세션 실행 검증은 수행하지 않음. 따라서 미리보기 결과를 양쪽 앱의 실제 동작 성공으로 확대하지 않음.</p></aside>
+<h2>이전 영상과 기록의 사용 범위</h2><p>기존 Prompt Master와 HWPX 영상에는 당시 프로젝트 범위 설치 및 실제 실행 기록이 포함됨. 이전 기록은 결과의 출처로 보존함. 현재 설치 실습은 본 공용 설치 안내를 따름. 영상의 터미널 형태 화면은 실제 실행완료 기록을 조회한 화면이며 터미널 직접 녹화와 구분함.</p>
+<h2>출처와 실제 웹 경로</h2><ul><li><a href="https://github.com/nidhinjs/prompt-master">Prompt Master 원본 저장소</a></li><li><a href="https://github.com/Canine89/gonggong_hwpxskills">HWPX 스킬 원본 저장소</a></li><li><a href="https://github.com/vercel-labs/skills/tree/main/skills/find-skills">find-skills 원본 폴더</a></li><li><a href="https://github.com/phaserjs/phaser">Phaser 원본 저장소</a></li><li><a href="https://learn.chatgpt.com/docs/plugins">Codex 공식 플러그인 안내</a></li><li><a href="https://code.claude.com/docs/en/discover-plugins">Claude Code 공식 플러그인 안내</a></li><li><a href="https://developers.openai.com/mcp">OpenAI Docs MCP 공개 URL</a></li></ul><p>공용 경로 및 관리 스크립트의 운용 기준은 사용자가 지정한 로컬 관리 정책임. 스크립트의 현재 동작을 확인하여 명령 예시를 작성함.</p></main><footer><a href="https://geoai-na.web.app/dinner/">저녁 뭐 먹지 룰렛</a> / <a href="https://smuds-m.github.io/semyung-shuttle/">셔틀버스 노선도</a></footer></html>

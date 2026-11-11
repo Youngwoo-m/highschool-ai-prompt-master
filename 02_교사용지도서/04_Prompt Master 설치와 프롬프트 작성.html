@@ -1,27 +1,26 @@
-<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>모듈 4. Prompt Master 설치와 프롬프트 작성</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>모듈 4. Prompt Master 설치와 프롬프트 작성</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="4-prompt-master">모듈 4. Prompt Master 설치와 프롬프트 작성</h1>
+<!DOCTYPE html>
+
+<html lang="ko"><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>모듈 4. Prompt Master 설치와 프롬프트 작성</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2f5f4;color:#19333d;font-family:"Malgun Gothic",sans-serif;line-height:1.85;font-size:15px}header{background:#0c2936;color:white;padding:42px max(6vw,24px)}header p{color:#a9d9cd;font-size:13px;letter-spacing:2px}header h1{font-size:36px;line-height:1.35;max-width:1050px;margin:12px 0}main{max-width:1120px;margin:auto;padding:28px 26px 70px}article{background:white;border-radius:16px;padding:38px;margin-bottom:28px;border:1px solid #dce5e3}h1,h2,h3{line-height:1.45}h2{font-size:24px;color:#146358;border-bottom:2px solid #cce2da;padding-bottom:12px;margin-top:38px}h3{font-size:18px;color:#284c5a;margin-top:28px}a{color:#096b73;overflow-wrap:anywhere}pre{background:#102d3b;color:#e3f3f4;border-radius:9px;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 Consolas,"Malgun Gothic",monospace}code{font-family:Consolas,"Malgun Gothic",monospace}p>code,li>code{background:#e9f1ee;padding:2px 5px;border-radius:3px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0}th{background:#dfede8;text-align:left}td,th{border:1px solid #cadbd5;padding:10px;vertical-align:top}blockquote{margin:22px 0;padding:14px 22px;background:#f7efd9;border-left:4px solid #c28b38}figure{margin:28px 0;background:#f0f5f3;border:1px solid #cfded8;padding:12px;border-radius:9px}figure img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:top}figcaption{font-size:12px;color:#526972;margin-top:10px;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}.cards a{background:white;display:block;border-radius:12px;border:1px solid #cfded8;padding:24px;text-decoration:none}.cards h2{margin:0 0 12px;font-size:22px}.pill{font-size:12px;display:inline-block;border-radius:18px;background:#dfede8;padding:5px 12px;margin:4px}.web-footer{padding:24px;text-align:center;background:#deebe6;font-size:12px}nav{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}nav a{background:#e1ede7;padding:8px 15px;border-radius:6px;text-decoration:none}.check{background:#eef5f0;padding:16px 22px;border-radius:8px}textarea{width:100%;height:100px;border:1px solid #9db5ae}button{cursor:pointer;padding:9px 16px;border:0;border-radius:6px;background:#146358;color:white}@media(max-width:760px){article{padding:20px}header h1{font-size:27px}.cards{grid-template-columns:1fr}main{padding:18px 12px}table{font-size:11px}}@media print{body{background:white;font-size:10pt}header{padding:12mm;background:white;color:black}header p{color:#333}main{padding:0;max-width:none}article{border:0;padding:3mm;break-before:page}figure img{max-height:140mm}pre{color:black;background:#eee;font-size:8pt}a{color:black}nav,.web-footer,button{display:none}h2,h3{break-after:avoid}figure,table{break-inside:avoid}@page{size:A4;margin:16mm}} .pill{color:#193d3a} .module-toc{border:1px solid #ccdcd6;padding:14px;border-radius:8px} @media print{article>h1{break-before:page}article>h1:first-child{break-before:auto}}header{background:#e4f6ef!important;color:#163c4a!important}header p{color:#087d82!important}pre{background:#edf8f3!important;color:#153b4b!important}</style><header><p>HIGH SCHOOL AI LAB / LEARN · BUILD · VERIFY</p><h1>모듈 4. Prompt Master 설치와 프롬프트 작성</h1><small>Windows 11 · 교사·학생 실습 자료 · 기준일 2026-11-10</small></header><main><aside id="shared-install-revision" style="background:#e3f4ea;border:2px solid #4b9b8a;padding:22px;margin:24px 0;color:#153b41">2026-11-11 공용 설치 기준으로 개정함. 스킬 원본은 사용자 .agents에 하나만 둠. Claude는 junction으로 연결하고 Codex는 직접 읽음. 플러그인은 같은 마켓플레이스를 양쪽에 각각 등록함. MCP는 servers.json과 sync_mcp.py로 관리함. <a href="https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/">공용 설치 명령과 프롬프트 입력 예시</a></aside><nav><a href="../교육자료_시작.html">교육자료 첫 화면</a><a href="../03_학생용실습자료/학생용_통합교재.html">학생용 통합교재</a><a href="../05_게임실습/완성게임/index.html">제천10경 게임</a></nav><article><h1 id="4-prompt-master">모듈 4. Prompt Master 설치와 프롬프트 작성</h1>
 <p>기준일 2026-11-10 · 예상 50분 · 교사용</p>
 <h2 id="1">1. 학습 목표</h2>
-<p>Prompt Master를 프로젝트에 설치하고 실제 요청을 실행하여 프롬프트를 작성한다.</p>
+<p>Prompt Master 원본을 사용자 공용 .agents에 설치하고 두 앱에서 요청하여 프롬프트를 작성함.</p>
 <h2 id="2">2. 핵심 개념</h2>
 <p>Prompt Master는 대상 AI 도구에 맞는 프롬프트 작성·개선 요청에 사용하는 스킬이다. 프롬프트 작성 요청과 실제 게임 개발 요청은 별개이다. 대상을 Codex 또는 Claude Code로 명시하고 입력 자료·기능·제약·완료 기준을 제공한다.</p>
 <h2 id="3">3. 준비물과 이용 조건</h2>
-<p>Node.js와 Skills CLI, 사용이 허용된 Codex 또는 교사의 Claude Code 환경. 원본 저장소의 README·SKILL.md·references를 함께 확인한다. 본 실습은 프로젝트 범위에 설치하여 기존 전역 스킬을 보존한다.</p>
+<p>Node.js와 Skills CLI, 사용이 허용된 Codex 또는 교사의 Claude Code 환경. 원본 저장소의 README·SKILL.md·references를 함께 확인한다. 현재 실습은 사용자 공용 원본을 사용하며 기존 원본이 있으면 재설치하지 않고 출처와 연결을 확인함.</p>
 <h2 id="4">4. 실제 웹 경로와 화면</h2>
-<p><strong>이동 경로:</strong> GitHub 원본 → README 설치·사용 안내 → 프로젝트 스킬 설치 → 새 세션 호출</p>
+<p><strong>이동 경로:</strong> GitHub 원본 → README 설치·사용 안내 → 사용자 공용 스킬 설치 → 새 세션 호출</p>
 <p><strong>직접 주소:</strong> <a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a></p>
-<figure><a href="../08_화면캡처/04_PromptMaster_원본저장소.jpg"><img src="../08_화면캡처/04_PromptMaster_원본저장소.jpg" alt="그림 4-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다."></a><figcaption>그림 4-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다. · 실제 캡처 2026-11-10<br>출처: <a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
-
-<figure><a href="../08_화면캡처/04_PromptMaster_설치실제기록.jpg"><img src="../08_화면캡처/04_PromptMaster_설치실제기록.jpg" alt="그림 4-2. 실제 설치 출력의 웹 열람 화면. 터미널 앱 UI가 아님."></a><figcaption>그림 4-2. 실제 설치 출력의 웹 열람 화면. 터미널 앱 UI가 아님. · 실제 캡처 2026-11-10<br>출처: <a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
-
-<figure><a href="../08_화면캡처/04_PromptMaster_사용실제기록.jpg"><img src="../08_화면캡처/04_PromptMaster_사용실제기록.jpg" alt="그림 4-3. 실제 입력·출력의 웹 열람 화면. AI 채팅 UI가 아님."></a><figcaption>그림 4-3. 실제 입력·출력의 웹 열람 화면. AI 채팅 UI가 아님. · 실제 캡처 2026-11-10<br>출처: <a href="../10_Canva발표자료/프롬프트_실습.html">../10_Canva발표자료/프롬프트_실습.html</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
-
+<figure><a href="../08_화면캡처/04_PromptMaster_원본저장소.jpg"><img alt="그림 4-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다." src="../08_화면캡처/04_PromptMaster_원본저장소.jpg"/></a><figcaption>그림 4-1. 직접 접속한 공식 웹페이지 화면. 새 설치·로그인 성공 화면과 구분한다. · 실제 캡처 2026-11-10<br/>출처: <a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
+<figure><a href="../08_화면캡처/04_PromptMaster_설치실제기록.jpg"><img alt="그림 4-2. 실제 설치 출력의 웹 열람 화면. 터미널 앱 UI가 아님." src="../08_화면캡처/04_PromptMaster_설치실제기록.jpg"/></a><figcaption>그림 4-2. 실제 설치 출력의 웹 열람 화면. 터미널 앱 UI가 아님. · 실제 캡처 2026-11-10<br/>출처: <a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
+<figure><a href="../08_화면캡처/04_PromptMaster_사용실제기록.jpg"><img alt="그림 4-3. 실제 입력·출력의 웹 열람 화면. AI 채팅 UI가 아님." src="../08_화면캡처/04_PromptMaster_사용실제기록.jpg"/></a><figcaption>그림 4-3. 실제 입력·출력의 웹 열람 화면. AI 채팅 UI가 아님. · 실제 캡처 2026-11-10<br/>출처: <a href="../10_Canva발표자료/프롬프트_실습.html">../10_Canva발표자료/프롬프트_실습.html</a> · 클릭하면 원본 크기로 열림</figcaption></figure>
 <h2 id="5">5. 단계별 실습</h2>
 <h3 id="1_1">단계 1. 원본 확인</h3>
 <p>nidhinjs/prompt-master 저장소에서 README, SKILL.md, references와 LICENSE를 확인한다. README의 브라우저 업로드 방식과 아래 프로젝트 CLI 방식은 별도 경로다.</p>
 <h3 id="2_1">단계 2. 프로젝트 폴더 생성</h3>
 <p>문서 폴더에 고교AI실습 폴더를 만들고 PowerShell을 해당 폴더에서 연다. 기존 같은 이름의 스킬이 있다면 출처를 확인하고 무조건 덮어쓰지 않는다.</p>
-<h3 id="3_1">단계 3. 프로젝트 설치</h3>
-<p>npx skills add 명령으로 prompt-master를 선택하고 Codex와 Claude Code를 대상으로 지정한다. -g 없이 프로젝트 범위로 설치한다. 실제 설치 로그에서 .agents 경로와 Claude Code 연결이 생성됨을 확인했다.</p>
+<h3 id="3_1">단계 3. 공용 원본 설치</h3>
+<p>사용자 .agents/skills/prompt-master에 단일 원본을 두고 consolidate_skills.py의 미리보기를 확인함. 계획과 백업을 검토한 뒤 --apply로 Claude 연결을 맞춤. 이전 프로젝트 설치 로그는 과거 실행 기록으로 구분함.</p>
 <h3 id="4_1">단계 4. 파일·세션 확인</h3>
 <p>SKILL.md와 references가 존재하는지 확인한 뒤 해당 프로젝트에서 새 에이전트 세션을 연다. 파일 복사, 세션 인식, 실제 요청 성공을 구분한다.</p>
 <h3 id="5_1">단계 5. 프롬프트 작성 요청</h3>
@@ -29,13 +28,19 @@
 <h3 id="6">단계 6. 출력 검토와 적용</h3>
 <p>생성된 요청문에 입력 자료·작업 범위·게임 규칙·완료 기준이 있는지 확인한다. 출력 전문은 복사용 웹페이지에서 제공한다. 기존 게임과 설계값이 다르면 수정한 뒤 별도 개발 세션에 입력한다.</p>
 <p><strong>입력 위치: Windows PowerShell.</strong> 주석과 경로를 읽고 필요한 명령만 실행한다. <code>/help</code> 등 세션 명령은 설명된 에이전트 안에서 입력한다.</p>
-<pre><code class="language-powershell"># 새 프로젝트에서 실행
-npx skills add nidhinjs/prompt-master --skill prompt-master -a codex -a claude-code
-npx skills list
-Get-Content -LiteralPath '.agents/skills/prompt-master/SKILL.md' -TotalCount 4 -Encoding UTF8
-# 설치 후 해당 폴더에서 새 Codex 세션 시작
-codex
-</code></pre>
+<pre># 이 PC의 공용 도구가 준비되어 있는지 먼저 확인함
+Test-Path "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 새 원본이 없는 경우에만 실행함. 이미 있으면 원본과 출처를 확인함
+$skillRoot = Join-Path $env:USERPROFILE '.agents\skills'
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+if (-not (Test-Path (Join-Path $skillRoot 'prompt-master'))) {
+    git clone https://github.com/nidhinjs/prompt-master (Join-Path $skillRoot 'prompt-master')
+}
+# 먼저 변경 계획을 확인함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 백업과 연결 계획을 검토한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
+# 양쪽 앱에서 새 세션을 열어 별도로 인식 여부를 확인함</pre>
 <h2 id="6_1">6. 복사 가능한 프롬프트 입력 예시</h2>
 <p>입력 위치는 이용이 허용된 Codex 또는 교사의 Claude Code 세션이다. 스킬 이름이 들어간 예시는 해당 스킬이 인식된 상태에서 사용한다. 아래는 입력 예시이며 실제 서비스에서 자동으로 실행된 응답을 뜻하지 않는다.</p>
 <h3 id="4-1">예시 4-1. 기본 요청</h3>
@@ -51,7 +56,7 @@ codex
 </code></pre>
 <p>확인: 기대 결과와 실제 실행 여부가 구분되었는지 확인한다.</p>
 <h2 id="7">7. 정상 결과와 확인 방법</h2>
-<p>별도 실습프로젝트에서 Skills CLI 설치가 성공했다. 이어 실제 Codex 요청을 실행하여 prompt-master의 SKILL.md를 읽고 게임 개발용 프롬프트를 출력했다. 원본 출력과 설치 로그를 보관했다. 이 출력은 별도 요청의 실제 응답이며 기존 완성 게임이 이 출력에서 새로 생성되었다는 의미는 아니다.</p>
+<p>이전 실행 기록: 별도 실습프로젝트에서 Skills CLI 설치가 성공했음. 이어 실제 Codex 요청을 실행하여 prompt-master의 SKILL.md를 읽고 게임 개발용 프롬프트를 출력했다. 원본 출력과 설치 로그를 보관했다. 이 출력은 별도 요청의 실제 응답이며 기존 완성 게임이 이 출력에서 새로 생성되었다는 의미는 아니다.</p>
 <h2 id="8">8. 오류와 해결</h2>
 <p>스킬이 인식되지 않으면 현재 프로젝트 경로, SKILL.md 및 references, 새 세션 여부를 확인한다. 다른 스킬과 이름이 같으면 출처를 명시한다. 대상을 정하지 않아 질문이 나오면 Codex 등 사용할 도구를 먼저 알려준다.</p>
 <h2 id="9">9. 과제와 확인 문항</h2>
@@ -65,4 +70,4 @@ codex
 <ul>
 <li><a href="https://github.com/nidhinjs/prompt-master">https://github.com/nidhinjs/prompt-master</a> · 확인일 2026-11-10</li>
 <li>상세 실행 상태: <a href="../07_검증및출처/검증현황.md">검증 현황</a></li>
-</ul></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" target="_blank" rel="noopener">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" target="_blank" rel="noopener">셔틀버스 노선도</a><br>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>
+</ul></article></main><footer class="web-footer"><b>체험 앱 바로가기</b> · <a href="https://geoai-na.web.app/dinner/" rel="noopener" target="_blank">저녁 뭐 먹지 룰렛</a> · <a href="https://smuds-m.github.io/semyung-shuttle/" rel="noopener" target="_blank">셔틀버스 노선도</a><br/>고교 교사·학생 AI 활용 교육 · 2026.11.10 제작 · 실제 수업 운영 결과는 포함하지 않음</footer><script>document.querySelectorAll("pre").forEach(p=>{const b=document.createElement("button");b.textContent="입력문 복사";b.onclick=()=>navigator.clipboard.writeText(p.innerText).then(()=>b.textContent="복사됨").catch(()=>b.textContent="직접 선택해 복사하세요");p.before(b);})</script></html>

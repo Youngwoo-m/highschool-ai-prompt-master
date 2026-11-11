@@ -1,10 +1,12 @@
+> 공용 설치 개정: 스킬은 사용자 .agents의 단일 원본, 플러그인은 양쪽 별도 등록, MCP는 공용 목록으로 관리함. https://youngwoo-m.github.io/highschool-ai-prompt-master/shared-install/
+
 # 모듈 5. GitHub와 find-skills 사용
 
 기준일 2026-11-10 · 예상 50분 · 교사용
 
 ## 1. 학습 목표
 
-원본 저장소를 확인하고 프로젝트 범위에서 스킬을 탐색·설치한다.
+원본 저장소와 SKILL.md 위치를 확인하고 사용자 공용 원본으로 스킬을 탐색하고 설치함.
 
 ## 2. 핵심 개념
 
@@ -36,9 +38,9 @@ Code 메뉴의 Download ZIP은 특정 시점의 사본을 받는다. git clone�
 
 node --version과 npm --version을 실행한다. 학교 정책에 맞는 설치본을 사용하고 CLI 문서의 최소 버전을 확인한다.
 
-### 단계 4. 프로젝트 설치
+### 단계 4. 공용 원본 설치
 
-실습 폴더에서 find-skills를 두 대상 에이전트에 설치한다. -g를 쓰지 않으면 프로젝트 범위를 우선한다. 실제 선택 화면이 나오면 대상과 경로를 읽는다.
+find-skills의 SKILL.md 하위 폴더를 사용자 공용 스킬 경로에 연결함. consolidate_skills.py의 계획을 검토한 뒤 적용하고 두 앱에서 새 세션으로 확인함.
 
 ### 단계 5. 검색
 
@@ -51,13 +53,25 @@ npx skills list와 파일 위치를 확인한다. 제거는 현재 도움말을 
 **입력 위치: Windows PowerShell.** 주석과 경로를 읽고 필요한 명령만 실행한다. `/help` 등 세션 명령은 설명된 에이전트 안에서 입력한다.
 
 ```powershell
-node --version
-npm --version
-npx skills add vercel-labs/skills --skill find-skills -a codex -a claude-code
-npx skills find "phaser"
-npx skills find "platformer"
-npx skills list
-npx skills --help
+# 후보 검색 명령임. 설치 완료를 의미하지 않음
+npx skills find prompt
+npx skills find phaser game
+# 저장소 원본과 공용 스킬 연결을 구분함
+$repoRoot = Join-Path $env:USERPROFILE '.agents\repositories'
+New-Item -ItemType Directory -Force -Path $repoRoot | Out-Null
+$repo = Join-Path $repoRoot 'vercel-skills'
+if (-not (Test-Path $repo)) {
+    git clone https://github.com/vercel-labs/skills $repo
+}
+$source = Join-Path $repo 'skills\find-skills'
+$shared = Join-Path $env:USERPROFILE '.agents\skills\find-skills'
+# 기존 원본이 있으면 덮어쓰지 않고 출처와 연결을 먼저 확인함
+if ((Test-Path (Join-Path $source 'SKILL.md')) -and (-not (Test-Path $shared))) {
+    New-Item -ItemType Junction -Path $shared -Target $source
+}
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py"
+# 변경 계획과 원본 보존을 확인한 뒤 적용함
+python "$env:USERPROFILE\.agents\tools\consolidate_skills.py" --apply
 ```
 
 ## 6. 복사 가능한 프롬프트 입력 예시
@@ -90,7 +104,7 @@ find-skills를 사용해 2D 횡스크롤 게임에 도움이 되는 스킬을 �
 
 ## 7. 정상 결과와 확인 방법
 
-프로젝트 .agents/skills/find-skills에 SKILL.md가 있고 Claude Code용 연결이 있다. 본 제작에서 CLI 설치는 성공했으며 로그를 07_검증및출처/install-find.txt에 보관했다.
+이전 실행에서는 프로젝트 .agents/skills/find-skills와 Claude Code 연결을 확인했음. 현재 설치 기준은 사용자 공용 .agents 원본임. 본 제작에서 CLI 설치는 성공했으며 로그를 07_검증및출처/install-find.txt에 보관했다.
 
 ## 8. 오류와 해결
 
